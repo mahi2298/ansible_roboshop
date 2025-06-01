@@ -45,7 +45,7 @@
   - name: copy catalogue service to systemd directory
     ansible.builtin.copy:
       src: catalogue.service
-      dest: /etc/systemd/system/catalogue.servie
+      dest: /etc/systemd/system/catalogue.service
 
   - name: systemctl Daemon-reload
     ansible.builtin.systemd_service:
