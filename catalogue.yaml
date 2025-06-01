@@ -1,0 +1,23 @@
+- name: Catalogue Component
+  hosts: catalogue
+  become: yes
+  tasks:
+  - name: disable the nodejs
+    ansible.builtin.dnf:
+      name: nodejs
+      state: absent
+
+  - name: enabling the nodejs
+    ansible.builtin.command: dnf module enable nodejs:20 -y
+
+  - name: installing the nodejs
+    ansible.builtin.dnf:
+      name: nodejs
+      state: installed
+
+  - name: creating the /app directory
+    ansible.builtin.file:
+      path: /app
+      state: directory
+
+  -
