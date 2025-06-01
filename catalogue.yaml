@@ -77,4 +77,4 @@
 
   - name: load products 
     ansible.builtin.shell: mongosh --host mongodb.pavithra.fun </app/db/master-data.js
-    when: catalogue_output < 0
+    when: catalogue_output | int < 0
