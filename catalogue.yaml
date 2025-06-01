@@ -3,7 +3,9 @@
   become: yes
   tasks:
   - name: disable the nodejs
-    ansible.builtin.command: dnf module disable nodejs -y
+    ansible.builtin.dnf:
+      name: nodejs
+      state: absent
 
   - name: enabling the nodejs
     ansible.builtin.command: dnf module enable nodejs:20 -y
@@ -70,7 +72,7 @@
 
   - name: print catalogue output 
     ansible.builtin.debug:
-      msg: {{ catalogue_output }}
+      msg: "{{ catalogue_output }}"
 
   - name: load products 
     ansible.builtin.shell: mongosh --host MONGODB-SERVER-IPADDRESS </app/db/master-data.js
