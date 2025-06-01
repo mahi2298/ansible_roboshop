@@ -1,0 +1,11 @@
+- name: frontend application
+  hosts: frontend
+  become: yes
+  tasks:
+  - name: Disabling the nginx 
+    ansible.builtin.dnf:
+      name: nginx
+      state: absent
+  
+  - name: Enabling the nginx
+    ansible.builtin.command: dnf module enable nginx:
