@@ -1,0 +1,6 @@
+- name: Shipping Component
+  hosts: shipping 
+  become: yes
+  tasks:
+  - name: disabling the nodejs
+    
