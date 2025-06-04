@@ -7,6 +7,14 @@
       name: maven
       state: present
 
+  - name: Install pythonMYSQL package
+    ansible.builtin.pip:
+      name: "{{ item }}"
+      executable: pip3.9
+    loop:
+    - PyMySQL
+    - cryptography
+
   - name: creating the /app directory
     ansible.builtin.file:
       path: /app 
@@ -59,14 +67,6 @@
     ansible.builtin.dnf:
       name: mysql
       state: installed
-
-  - name: Install pythonMYSQL package
-    ansible.builtin.pip:
-      name: "{{ item }}"
-      executable: pip3.9
-    loop:
-    - PyMySQL
-    - cryptography
   
   - name: Loading the data 
     community.mysql.mysql_db:
