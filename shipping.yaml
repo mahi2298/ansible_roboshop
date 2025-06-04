@@ -60,6 +60,11 @@
       name: mysql
       state: installed
 
+  - name: Install pythonMYSQL package
+    ansible.builtin.pip:
+      name: PyMySQL 
+      executable: pip3.9
+  
   - name: Loading the data 
     community.mysql.mysql_db:
       name: all
