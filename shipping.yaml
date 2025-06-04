@@ -62,8 +62,11 @@
 
   - name: Install pythonMYSQL package
     ansible.builtin.pip:
-      name: PyMySQL 
+      name: "{{ item }}"
       executable: pip3.9
+    loop:
+    - PyMySQL
+    - cryptography
   
   - name: Loading the data 
     community.mysql.mysql_db:
