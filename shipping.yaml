@@ -28,6 +28,7 @@
     ansible.builtin.unarchive:
       src: /tmp/shipping.zip
       dest: /app
+      remote_src: yes
 
   - name: install the maven dependencies
     ansible.builtin.command: mvn clean package
