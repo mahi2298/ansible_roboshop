@@ -1,5 +1,5 @@
 - name: RabbitMQ Component
-  hosts: rabbitmq 
+  hosts: rabbitmq
   become: yes
   tasks:
   - name: copying the rabbitmq repo
